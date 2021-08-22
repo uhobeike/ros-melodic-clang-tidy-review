@@ -1,4 +1,4 @@
-name: 'clang-tidy review'
+name: 'ros-melodic clang-tidy review'
 author: 'Peter Hill & Tatsuhiro Ikebe'
 description: 'Create a pull request review based on warnings from clang-tidy'
 branding:
