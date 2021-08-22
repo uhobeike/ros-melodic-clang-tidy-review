@@ -15,7 +15,7 @@ RUN apt update && apt upgrade -y && \
     python3.7-dev \
     python3-pip && \
     update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1 && \
-    pip3 install pip \
+    python3 -V && \
     pip3 install --upgrade pip && \
     pip3 install -r requirements.txt
 
