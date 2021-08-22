@@ -1,6 +1,6 @@
-name: 'clang-tidy review'
+name: 'ros-melodic clang-tidy review'
 author: 'Peter Hill & Tatsuhiro Ikebe'
-description: 'Create a pull request review based on warnings from clang-tidy'
+description: 'Create a pull request review based on warnings from clang-tidy and Derived from clang-tidy-review'
 branding:
   icon: 'book-open'
   color: 'red'
@@ -14,8 +14,8 @@ inputs:
     default: '.'
     required: false
   clang_tidy_version:
-    description: 'Version of clang-tidy to use; one of 6.0, 7, 8, 9, 10, 11'
-    default: '11'
+    description: 'Version of clang-tidy to use; one of 6.0, 7, 8, 9, 10'
+    default: '10'
     required: false
   clang_tidy_checks:
     description: 'List of checks'
