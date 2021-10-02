@@ -320,6 +320,12 @@ if __name__ == "__main__":
         type=int,
         default=25,
     )
+    parser.add_argument(
+        "--rosdep-install",
+        help="Install package dependencies with rosdep install",
+        type=bool,
+        default=True,
+    )
     parser.add_argument("--token", help="github auth token")
 
     args = parser.parse_args()
@@ -336,6 +342,12 @@ if __name__ == "__main__":
         print("Installing additional packages:", apt_packages)
         subprocess.run(
             ["apt", "install", "-y", "--no-install-recommends"] + apt_packages
+        )
+
+    if args.rosdep_install:
+        print("Start rosdep install")
+        subprocess.run(
+            ["rosdep", "install", "-r", "-y", "-i", "--from-paths", "--rosdistro melodic", "--ignore-src", "./"]
         )
 
     build_compile_commands = f"{args.build_dir}/compile_commands.json"
@@ -382,4 +394,5 @@ if __name__ == "__main__":
         include=include,
         exclude=exclude,
         max_comments=args.max_comments,
+        rosdep_install=args.rosdep_install,
     )

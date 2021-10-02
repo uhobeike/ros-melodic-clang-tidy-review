@@ -37,6 +37,10 @@ inputs:
     description: 'Maximum number of comments to post at once'
     required: false
     default: '25'
+  rosdep_install:
+    description: 'Install package dependencies with rosdep install'
+    required: false
+    default: 'true'
   pr:
     default: ${{ github.event.pull_request.number }}
   repo:
@@ -57,3 +61,5 @@ runs:
     - --include='${{ inputs.include }}'
     - --exclude='${{ inputs.exclude }}'
     - --apt-packages=${{ inputs.apt_packages }}
+    - --max_comments=${{ inputs.max_comments }}
+    - --rosdep-install=${{ inputs.rosdep_install }}
