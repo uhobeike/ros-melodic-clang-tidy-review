@@ -61,5 +61,5 @@ runs:
     - --include='${{ inputs.include }}'
     - --exclude='${{ inputs.exclude }}'
     - --apt-packages=${{ inputs.apt_packages }}
-    - --max_comments=${{ inputs.max_comments }}
+    - --max-comments=${{ inputs.max_comments }}
     - --rosdep-install=${{ inputs.rosdep_install }}
