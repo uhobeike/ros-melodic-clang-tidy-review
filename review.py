@@ -347,7 +347,7 @@ if __name__ == "__main__":
     if args.rosdep_install:
         print("Start rosdep install")
         subprocess.run(
-            ["rosdep", "install", "-r", "-y", "-i", "--from-paths", "--rosdistro melodic", "--ignore-src", "./"]
+            ["rosdep", "install", "-r", "-y", "-i", "--from-paths", "--rosdistro", "melodic", "--ignore-src", "./"]
         )
 
     build_compile_commands = f"{args.build_dir}/compile_commands.json"
@@ -394,5 +394,4 @@ if __name__ == "__main__":
         include=include,
         exclude=exclude,
         max_comments=args.max_comments,
-        rosdep_install=args.rosdep_install,
     )
