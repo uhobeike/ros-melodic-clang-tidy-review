@@ -220,6 +220,7 @@ def main(
     include,
     exclude,
     max_comments,
+    rosdep_install,
 ):
 
     diff = get_pr_diff(repo, pr_number, token)
@@ -394,4 +395,5 @@ if __name__ == "__main__":
         include=include,
         exclude=exclude,
         max_comments=args.max_comments,
+        rosdep_install=args.rosdep_install,
     )
