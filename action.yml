@@ -40,7 +40,7 @@ inputs:
   rosdep_install:
     description: 'Install package dependencies with rosdep install'
     required: false
-    default: 'false'
+    default: 'False'
   pr:
     default: ${{ github.event.pull_request.number }}
   repo:
