@@ -324,7 +324,6 @@ if __name__ == "__main__":
         "--rosdep-install",
         help="Install package dependencies with rosdep install",
         type=bool,
-        default=True,
     )
     parser.add_argument("--token", help="github auth token")
 
