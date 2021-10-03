@@ -346,6 +346,7 @@ if __name__ == "__main__":
 
     if args.rosdep_install:
         print("Start rosdep install")
+        print(args.rosdep_install)
         command = "rosdep init; rosdep update; rosdep install -r -y -i --from-paths --rosdistro melodic --ignore-src ./"
         subprocess.run(command, capture_output=True, shell=True)
 
