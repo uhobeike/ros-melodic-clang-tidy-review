@@ -6,6 +6,7 @@
 # See LICENSE for more information
 
 import argparse
+from distutils.util import strtobool
 import itertools
 import fnmatch
 import json
@@ -220,7 +221,6 @@ def main(
     include,
     exclude,
     max_comments,
-    rosdep_install,
 ):
 
     diff = get_pr_diff(repo, pr_number, token)
@@ -324,8 +324,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--rosdep-install",
         help="Install package dependencies with rosdep install",
-        type=bool,
-        default=False,
+        type=str,
+        default="False",
     )
     parser.add_argument("--token", help="github auth token")
 
@@ -345,10 +345,8 @@ if __name__ == "__main__":
             ["apt", "install", "-y", "--no-install-recommends"] + apt_packages
         )
 
-    if args.rosdep_install:
+    if strtobool(args.rosdep_install):
         print("Start rosdep install")
-        print(args.rosdep_install)
-        print(args.max_comments)
         command = "rosdep init; rosdep update; rosdep install -r -y -i --from-paths --rosdistro melodic --ignore-src ./"
         subprocess.run(command, capture_output=True, shell=True)
 
@@ -396,5 +394,4 @@ if __name__ == "__main__":
         include=include,
         exclude=exclude,
         max_comments=args.max_comments,
-        rosdep_install=args.rosdep_install,
     )
